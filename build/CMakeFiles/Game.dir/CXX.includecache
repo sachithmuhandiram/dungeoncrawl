@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sachith/Documents/Learning/Game/game.cpp
+game.hpp
+/home/sachith/Documents/Learning/Game/game.hpp
+
+/home/sachith/Documents/Learning/Game/game.hpp
+

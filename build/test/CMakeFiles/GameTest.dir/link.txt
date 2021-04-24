@@ -1,0 +1,1 @@
+/bin/g++-9  -g   CMakeFiles/GameTest.dir/GameTest.cpp.o  -o GameTest  ../lib/libgtest_maind.a ../libGame.a ../lib/libgtestd.a -lpthread 
