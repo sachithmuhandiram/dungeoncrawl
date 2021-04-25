@@ -27,6 +27,11 @@ struct Destination
     char destinationSymbol = 'W';
 };
 
+
 Player getPlayerLocation();
+Player getPlayerStartingLocation();
+
+void setPlayerLocation(Player);
+void setTrapLocations(Trap);
 
 #endif
