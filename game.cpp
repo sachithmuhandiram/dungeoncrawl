@@ -59,12 +59,14 @@ void captureUserMovement(){
     std::vector<Player> userOldLocation = globalPlayerLocation;
 
     int c = 0;
-        unsigned char ch1 = getchar();
-
+        initscr();
+        int ch1 = getch();
+        cbreak();
         std::cout <<" User pressed : " << ch1 << std::endl;
         if (ch1 == KEY_ARROW_CHAR1)
         {
             unsigned char ch2 = getchar();
+           
             switch(ch2) {
             case KEY_UP:
                 std::cout << std::endl << "Up" << std::endl;//key up
