@@ -11,8 +11,8 @@ void captureUserMovement();
 
 struct Location
 {
-    int x;
-    int y;
+    int x=1;
+    int y=1;
 };
 
 struct Player

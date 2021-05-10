@@ -1,5 +1,6 @@
 #include <ncurses.h>
 #include <stdio.h>
+#include "game.hpp"
 
 void moveUp(WINDOW *);
 void moveDown(WINDOW *);
@@ -7,6 +8,7 @@ void moveLeft(WINDOW *);
 void moveRight(WINDOW *); 
 void display();
 
+Player player;
 int yMax =15;
 int xMax =15;
 int yLocation,xLocation;
@@ -73,6 +75,8 @@ void moveUp(WINDOW *w){
     {
         yLocation =1;
     }
+    player.playerLocation.y--;
+    std::cout << "Location : " << player.playerLocation.y << std::endl;
     mvwaddch(w,yLocation+1,xLocation,' ');
 }
 
@@ -83,6 +87,8 @@ void moveDown(WINDOW *win){
     {
         yLocation = yMax-2; 
     }
+    player.playerLocation.y++;
+    std::cout << "Location : " << player.playerLocation.y << std::endl;
     mvwaddch(win,yLocation-1,xLocation,' ');
 }
 
@@ -93,6 +99,8 @@ void moveLeft(WINDOW *win){
     {
         xLocation = 1;
     }
+        player.playerLocation.x--;
+        std::cout << "Location x : " << player.playerLocation.x << std::endl;
         mvwaddch(win,yLocation,xLocation+1,' ');
 }
 
@@ -102,5 +110,7 @@ void moveRight(WINDOW *win){
     {
         xLocation = xMax-2;
     }
+    player.playerLocation.x++;
+        std::cout << "Location x : " << player.playerLocation.x << std::endl;
     mvwaddch(win,yLocation,xLocation-1,' ');
 }

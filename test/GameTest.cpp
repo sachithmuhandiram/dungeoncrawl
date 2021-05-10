@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "../game.hpp"
+#include "../movement.hpp"
 
 TEST(GameTests,checkPlayerSymbol){
     Player playerDetails = getPlayerLocation();
