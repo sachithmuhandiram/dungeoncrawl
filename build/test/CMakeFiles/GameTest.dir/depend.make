@@ -22,5 +22,6 @@ test/CMakeFiles/GameTest.dir/GameTest.cpp.o: ../googletest/googletest/include/gt
 test/CMakeFiles/GameTest.dir/GameTest.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
 test/CMakeFiles/GameTest.dir/GameTest.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
 test/CMakeFiles/GameTest.dir/GameTest.cpp.o: ../game.hpp
+test/CMakeFiles/GameTest.dir/GameTest.cpp.o: ../movement.hpp
 test/CMakeFiles/GameTest.dir/GameTest.cpp.o: ../test/GameTest.cpp
 

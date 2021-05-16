@@ -7,21 +7,12 @@
 std::vector<Player> globalPlayerLocation(1);
 std::vector<Trap> globalTrapLocations(5);
 
-Player getPlayerLocation(){
-    Player playerDetails;
-
-    //playerDetails.playerSymbol = 'G';
-    playerDetails.playerLocation.x = 5;
-    playerDetails.playerLocation.y = 11;
-
-    return playerDetails;
-
-}
 
 Player getPlayerStartingLocation(){
 
     Player playerStartingLocation {};
 
+// this should call to window and get user location.
     playerStartingLocation.playerLocation.x = 1;
     playerStartingLocation.playerLocation.y = 11;
 
@@ -52,42 +43,4 @@ void setTrapLocations(Trap trap){
         globalTrapLocations[0].trapLocation.y = 4;
     }
 
-}
-
-void captureUserMovement(){
-
-    std::vector<Player> userOldLocation = globalPlayerLocation;
-
-    int c = 0;
-        initscr();
-        int ch1 = getch();
-        cbreak();
-        std::cout <<" User pressed : " << ch1 << std::endl;
-        if (ch1 == KEY_ARROW_CHAR1)
-        {
-            unsigned char ch2 = getchar();
-           
-            switch(ch2) {
-            case KEY_UP:
-                std::cout << std::endl << "Up" << std::endl;//key up
-                // y value increamentd
-                break;
-            case KEY_DOWN:
-                std::cout << std::endl << "Down" << std::endl;   // key down
-                // y val decremented
-                break;
-            case KEY_LEFT:
-                std::cout << std::endl << "Left" << std::endl;  // key left
-                // x val decremented
-                break;
-            case KEY_RIGHT:
-                std::cout << std::endl << "Right" << std::endl;  // key right
-                // x val incremented
-                break;
-            default:
-                std::cout << std::endl << "null" << std::endl;  // not arrow
-                break;
-            }
-        }
-    
 }

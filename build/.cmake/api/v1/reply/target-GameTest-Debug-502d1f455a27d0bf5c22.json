@@ -107,6 +107,10 @@
 				"role" : "libraries"
 			},
 			{
+				"fragment" : "-lncurses",
+				"role" : "libraries"
+			},
+			{
 				"fragment" : "../lib/libgtestd.a",
 				"role" : "libraries"
 			},

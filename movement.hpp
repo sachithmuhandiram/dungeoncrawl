@@ -66,6 +66,7 @@ void display(){
         
     }
     endwin();
+
 }
 
 void moveUp(WINDOW *w){
@@ -76,7 +77,7 @@ void moveUp(WINDOW *w){
         yLocation =1;
     }
     player.playerLocation.y--;
-    std::cout << "Location : " << player.playerLocation.y << std::endl;
+   
     mvwaddch(w,yLocation+1,xLocation,' ');
 }
 
@@ -88,7 +89,6 @@ void moveDown(WINDOW *win){
         yLocation = yMax-2; 
     }
     player.playerLocation.y++;
-    std::cout << "Location : " << player.playerLocation.y << std::endl;
     mvwaddch(win,yLocation-1,xLocation,' ');
 }
 
@@ -100,7 +100,6 @@ void moveLeft(WINDOW *win){
         xLocation = 1;
     }
         player.playerLocation.x--;
-        std::cout << "Location x : " << player.playerLocation.x << std::endl;
         mvwaddch(win,yLocation,xLocation+1,' ');
 }
 
@@ -111,6 +110,16 @@ void moveRight(WINDOW *win){
         xLocation = xMax-2;
     }
     player.playerLocation.x++;
-        std::cout << "Location x : " << player.playerLocation.x << std::endl;
     mvwaddch(win,yLocation,xLocation-1,' ');
+}
+
+Player getPlayerLocation(){
+    //Player playerDetails;
+
+    //playerDetails.playerSymbol = 'G';
+   // player.playerLocation.x = 13;
+   // player.playerLocation.y = 13;
+
+    return player;
+
 }
