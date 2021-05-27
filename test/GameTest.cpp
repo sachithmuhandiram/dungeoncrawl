@@ -1,8 +1,10 @@
 #include <gtest/gtest.h>
 #include "../game.hpp"
 #include "../movement.hpp"
+#include "../game.cpp"
 //#include <ncurses.h>
 #include <stdio.h>
+#include <iostream>
 
 TEST(GameTests,checkPlayerSymbol){
     Player playerDetails = getPlayerLocation();
@@ -25,5 +27,12 @@ TEST(GameTest,playerOutsideTheGridIsInvalid){
     Player playerLocation = getPlayerLocation();
     EXPECT_FALSE(((playerLocation.playerLocation.x < 0) && (playerLocation.playerLocation.x > 12)));
     EXPECT_FALSE(((playerLocation.playerLocation.y < 0) && (playerLocation.playerLocation.y > 12)));
+    
+}
+
+TEST(GameTest,totalNumberOfEnemiesAreFive){
+   // Trap trapLocation = getPlayerLocation();
+    int numberOfTraps = int(sizeof(globalTrapLocations));
+    ASSERT_EQ(numberOfTraps,5);
     
 }

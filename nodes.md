@@ -13,3 +13,5 @@
 [Ncurses with CMake](https://stackoverflow.com/questions/40710903/undefined-reference-during-linking-using-ncurses-and-cmake)
 
 Have to use above linked method in CMakeLists under /test to work with google tests, otherwise it can not initiate ncurses functions.  
+
+[Random number with in a range](https://stackoverflow.com/questions/7560114/random-number-c-in-some-range)

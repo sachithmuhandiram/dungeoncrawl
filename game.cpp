@@ -1,12 +1,11 @@
 #include "game.hpp"
 #include <iostream>
-#include <vector>
 #include <stdio.h>
 #include <curses.h>
 
-std::vector<Player> globalPlayerLocation(1);
-std::vector<Trap> globalTrapLocations(5);
 
+std::vector<Player> globalPlayerLocation(1);
+std::vector<Trap> globalTrapLocations{5};
 
 Player getPlayerStartingLocation(){
 

@@ -7,6 +7,8 @@
 #define KEY_RIGHT 77
 #define KEY_ARROW_CHAR1 224
 
+#include <vector>
+
 void captureUserMovement();
 
 struct Location
@@ -32,6 +34,8 @@ struct Destination
     Location destinationLocation;
     char destinationSymbol = 'W';
 };
+
+// Global variables
 
 
 Player getPlayerLocation();
