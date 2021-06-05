@@ -343,6 +343,8 @@ curses.h
 /home/sachith/Documents/Learning/Game/game.hpp
 vector
 -
+ncurses.h
+-
 
 /home/sachith/Documents/Learning/Game/movement.hpp
 ncurses.h

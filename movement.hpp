@@ -29,6 +29,7 @@ void display(){
 
     refresh();
     mvwaddch(win,1,1,'f');
+    setEnemies(win,globalTrapLocations);
     wrefresh(win);
     keypad(win,true);
     // above two should be in line

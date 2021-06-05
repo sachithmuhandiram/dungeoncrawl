@@ -1,5 +1,5 @@
 [ ] - Add 5 random enemies, they can not move in initial stage.
-    * Can no be in (1,1) and (12,12)
+    * Can not be in (1,1) and (12,12)
     * Must be inside the grid.
     
 [ ] - If user moves to those locations, capture.

@@ -31,8 +31,8 @@ TEST(GameTest,playerOutsideTheGridIsInvalid){
 }
 
 TEST(GameTest,totalNumberOfEnemiesAreFive){
-   // Trap trapLocation = getPlayerLocation();
-    int numberOfTraps = int(sizeof(globalTrapLocations));
+    //Trap trapLocation = getPlayerLocation();
+    int numberOfTraps = globalTrapLocations;
     ASSERT_EQ(numberOfTraps,5);
     
 }
