@@ -10,6 +10,7 @@
 #include <vector>
 #include <ncurses.h>
 #include <random>
+#include <iostream>
 
 int globalTrapLocations {5};
 
@@ -52,19 +53,10 @@ void setTrapLocations(Trap);
 
 void setEnemies(WINDOW *win,int numberOfEnemies){
 
-    int justCheck = numberOfEnemies;
-    int * randomLocationArray = generateRandomNumber(numberOfEnemies*2);
+    int* randomLocationArray = generateRandomNumber(numberOfEnemies*2);
 
-    for (int i = 0; i < numberOfEnemies; i++)
-
-        for (int i = 0; i < numberOfEnemies*2; i++)
-        {
-            for (int j = i; j < i+2; j++)
-            {
-                mvwaddch(win,randomLocationArray[j],randomLocationArray[j+1],'T');
-            }
-            
-            
+    for (int i = 0; i < numberOfEnemies; i++){
+            mvwaddch(win,randomLocationArray[((i+1)*2-2)],randomLocationArray[((i+1)*2-1)],'T');
         }
 
 }
@@ -73,16 +65,17 @@ int * generateRandomNumber(int requiredRandomNumbers){
 
     std::random_device rd; // obtain a random number from hardware
     std::mt19937 gen(rd()); // seed the generator
-    std::uniform_int_distribution<> distr(25, 63); // define the range
+    std::uniform_int_distribution<> distr(2, 12); // define the range
 
-    int randomNumberArray [requiredRandomNumbers];
+    static int randomNumberArray[10];   // This has to be there to get numbers to random order
+
     int randomNumber =0;
     for(int n=0; n<requiredRandomNumbers; ++n){
 
         randomNumber = distr(gen);
         randomNumberArray[n]=randomNumber;
     }
-
+    
     return randomNumberArray;
 }
 
