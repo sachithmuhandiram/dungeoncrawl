@@ -79,4 +79,6 @@ int * generateRandomNumber(int requiredRandomNumbers){
     return randomNumberArray;
 }
 
+bool isUserFallToATrap();
+
 #endif

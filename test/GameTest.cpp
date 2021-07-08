@@ -36,3 +36,9 @@ TEST(GameTest,totalNumberOfEnemiesAreFive){
     ASSERT_EQ(numberOfTraps,5);
     
 }
+
+TEST(GameTest,playerFallToTrapReturnsGameOver){
+    // 
+    bool trapped = isUserFallToATrap();
+    ASSERT_EQ(trapped,true);
+}

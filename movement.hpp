@@ -45,6 +45,7 @@ void display(){
         case KEY_UP:
             
             moveUp(win);
+            // user trap location
             break;
         case KEY_DOWN:
             

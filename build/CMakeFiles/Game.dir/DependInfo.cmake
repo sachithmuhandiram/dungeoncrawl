@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sachith/Documents/Learning/Game/game.cpp" "/home/sachith/Documents/Learning/Game/build/CMakeFiles/Game.dir/game.cpp.o"
+  "/home/sachith/Documents/Personal/Projects/dungeoncrawl/game.cpp" "/home/sachith/Documents/Personal/Projects/dungeoncrawl/build/CMakeFiles/Game.dir/game.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

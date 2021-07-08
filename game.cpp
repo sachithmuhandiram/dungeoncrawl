@@ -30,3 +30,4 @@ void setPlayerLocation(Player player){
     globalPlayerLocation[0].playerLocation.y = 10;
 
 }
+

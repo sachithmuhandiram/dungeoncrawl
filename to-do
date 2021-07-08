@@ -3,6 +3,8 @@
     * Must be inside the grid.
     
 [ ] - If user moves to those locations, capture.
+    * Trap locations are not allowed
+    * Catch them
 
 [ ] - Enemies also moves randomly with user movements.
 [ ] - User traps if enemy and user moves to the same location.

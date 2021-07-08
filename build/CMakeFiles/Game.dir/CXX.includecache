@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/sachith/Documents/Learning/Game/game.cpp
+/home/sachith/Documents/Personal/Projects/dungeoncrawl/game.cpp
 game.hpp
-/home/sachith/Documents/Learning/Game/game.hpp
+/home/sachith/Documents/Personal/Projects/dungeoncrawl/game.hpp
 iostream
 -
 stdio.h
@@ -16,9 +16,13 @@ stdio.h
 curses.h
 -
 
-/home/sachith/Documents/Learning/Game/game.hpp
+/home/sachith/Documents/Personal/Projects/dungeoncrawl/game.hpp
 vector
 -
 ncurses.h
+-
+random
+-
+iostream
 -
 

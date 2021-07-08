@@ -1,4 +1,4 @@
-# Install script for directory: /home/sachith/Documents/Learning/Game/test
+# Install script for directory: /home/sachith/Documents/Personal/Projects/dungeoncrawl/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
