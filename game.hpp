@@ -35,6 +35,7 @@ struct Player
 
 struct Trap
 {
+    int trapNumber;
     Location trapLocation;
     char trapSymbol = 'T';
 };
@@ -47,6 +48,7 @@ struct Destination
 
 // Global variables
 
+Trap *traps = new Trap[numberOfEnemies]; // = {5};
 
 Player getPlayerLocation();
 Player getPlayerStartingLocation();
@@ -55,11 +57,16 @@ void setPlayerLocation(Player);
 void setTrapLocations(Trap);
 
 void setEnemies(WINDOW *win,int numberOfEnemies){
-
+//void setEnemies(int numberOfEnemies){
     enemyLocations = generateRandomNumber(numberOfEnemies*2);
 
     for (int i = 0; i < numberOfEnemies; i++){
-            mvwaddch(win,enemyLocations[((i+1)*2-2)],enemyLocations[((i+1)*2-1)],'T');
+            traps[i].trapNumber =i;
+            traps[i].trapLocation.x = enemyLocations[((i+1)*2-2)];
+            traps[i].trapLocation.y = enemyLocations[((i+1)*2-1)];
+            traps[i].trapSymbol = 'T';
+
+            mvwaddch(win,traps[i].trapLocation.x,traps[i].trapLocation.y,traps[i].trapSymbol);
         }
 
 }

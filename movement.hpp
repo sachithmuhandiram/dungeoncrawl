@@ -80,6 +80,7 @@ void moveUp(WINDOW *w){
     player.playerLocation.y--;
     //check whether user jumped to a trap 
     bool trapped = isUserFallToATrap(numberOfEnemies);
+
     if(trapped==true){
         mvwaddch(w,yLocation+1,xLocation,'D');
     }else{
@@ -133,20 +134,14 @@ Player getPlayerLocation(){
 
 bool isUserFallToATrap(int numberOfEnemies){
     // get enemy locations
-    bool sample;
+  
     for (int i = 0; i < numberOfEnemies; i++){
-            int enemyXLocation = enemyLocations[((i+1)*2-2)];
-            int enemyYLocation = enemyLocations[((i+1)*2-1)];
 
-            // player locations
-            
-
-            if(player.playerLocation.x == enemyXLocation && player.playerLocation.y == enemyYLocation){
-                sample = true;
-                return sample;
+        
+            if(player.playerLocation.x == traps[i].trapLocation.x && player.playerLocation.y == traps[i].trapLocation.y){
+                return true;
             }
 
         }
-    sample = false;
     return false;
 }
