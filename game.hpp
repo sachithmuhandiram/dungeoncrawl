@@ -13,10 +13,13 @@
 #include <iostream>
 
 int globalTrapLocations {5};
+int * enemyLocations;
+int numberOfEnemies =5;
 
 void captureUserMovement();
 void setEnemies(WINDOW *win,int);
 int * generateRandomNumber(int );
+
 
 struct Location
 {
@@ -53,10 +56,10 @@ void setTrapLocations(Trap);
 
 void setEnemies(WINDOW *win,int numberOfEnemies){
 
-    int* randomLocationArray = generateRandomNumber(numberOfEnemies*2);
+    enemyLocations = generateRandomNumber(numberOfEnemies*2);
 
     for (int i = 0; i < numberOfEnemies; i++){
-            mvwaddch(win,randomLocationArray[((i+1)*2-2)],randomLocationArray[((i+1)*2-1)],'T');
+            mvwaddch(win,enemyLocations[((i+1)*2-2)],enemyLocations[((i+1)*2-1)],'T');
         }
 
 }
@@ -79,6 +82,7 @@ int * generateRandomNumber(int requiredRandomNumbers){
     return randomNumberArray;
 }
 
-bool isUserFallToATrap();
+
+bool isUserFallToATrap(int numberOfEnemies);
 
 #endif

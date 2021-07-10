@@ -145,8 +145,8 @@ googletest/googlemock/preinstall: googletest/googletest/preinstall
 # Target rules for target googletest/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googlemock/CMakeFiles/gmock.dir/all
+googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sachith/Documents/Personal/Projects/dungeoncrawl/build/CMakeFiles --progress-num=7,8 "Built target gmock_main"
@@ -332,9 +332,9 @@ test/preinstall:
 # Target rules for target test/CMakeFiles/GameTest.dir
 
 # All Build rule for target.
+test/CMakeFiles/GameTest.dir/all: CMakeFiles/Game.dir/all
 test/CMakeFiles/GameTest.dir/all: googletest/googletest/CMakeFiles/gtest_main.dir/all
 test/CMakeFiles/GameTest.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
-test/CMakeFiles/GameTest.dir/all: CMakeFiles/Game.dir/all
 	$(MAKE) -f test/CMakeFiles/GameTest.dir/build.make test/CMakeFiles/GameTest.dir/depend
 	$(MAKE) -f test/CMakeFiles/GameTest.dir/build.make test/CMakeFiles/GameTest.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sachith/Documents/Personal/Projects/dungeoncrawl/build/CMakeFiles --progress-num=3,4 "Built target GameTest"

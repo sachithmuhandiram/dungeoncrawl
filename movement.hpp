@@ -45,7 +45,6 @@ void display(){
         case KEY_UP:
             
             moveUp(win);
-            // user trap location
             break;
         case KEY_DOWN:
             
@@ -79,8 +78,14 @@ void moveUp(WINDOW *w){
         yLocation =1;
     }
     player.playerLocation.y--;
-   
-    mvwaddch(w,yLocation+1,xLocation,' ');
+    //check whether user jumped to a trap 
+    bool trapped = isUserFallToATrap(numberOfEnemies);
+    if(trapped==true){
+        mvwaddch(w,yLocation+1,xLocation,'D');
+    }else{
+        mvwaddch(w,yLocation+1,xLocation,'K');
+    }
+
 }
 
 void moveDown(WINDOW *win){
@@ -124,4 +129,24 @@ Player getPlayerLocation(){
 
     return player;
 
+}
+
+bool isUserFallToATrap(int numberOfEnemies){
+    // get enemy locations
+    bool sample;
+    for (int i = 0; i < numberOfEnemies; i++){
+            int enemyXLocation = enemyLocations[((i+1)*2-2)];
+            int enemyYLocation = enemyLocations[((i+1)*2-1)];
+
+            // player locations
+            
+
+            if(player.playerLocation.x == enemyXLocation && player.playerLocation.y == enemyYLocation){
+                sample = true;
+                return sample;
+            }
+
+        }
+    sample = false;
+    return false;
 }
