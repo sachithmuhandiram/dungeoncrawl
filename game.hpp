@@ -14,7 +14,7 @@
 
 int globalTrapLocations {5};
 int * enemyLocations;
-int numberOfEnemies =5;
+int numberOfTraps =5;
 
 void captureUserMovement();
 void setEnemies(WINDOW *win,int);
@@ -48,7 +48,9 @@ struct Destination
 
 // Global variables
 
-Trap *traps = new Trap[numberOfEnemies]; // = {5};
+Trap *traps = new Trap[numberOfTraps]; // = {5};
+Player *player = new Player[1];
+
 
 Player getPlayerLocation();
 Player getPlayerStartingLocation();
@@ -56,9 +58,24 @@ Player getPlayerStartingLocation();
 void setPlayerLocation(Player);
 void setTrapLocations(Trap);
 
-void setEnemies(WINDOW *win,int numberOfEnemies){
-//void setEnemies(int numberOfEnemies){
+//void setEnemies(WINDOW *win,int numberOfEnemies){
+void setPlayer(){
+
+    player->playerSymbol = 'P';
+    player->playerLocation.x = 1;
+    player->playerLocation.y = 1;
+
+}
+
+Player * getPlayer(){
+
+    return player;
+}
+
+
+void setTraps(int numberOfEnemies){
     enemyLocations = generateRandomNumber(numberOfEnemies*2);
+    //Trap *traps = new Trap();
 
     for (int i = 0; i < numberOfEnemies; i++){
             traps[i].trapNumber =i;
@@ -66,11 +83,24 @@ void setEnemies(WINDOW *win,int numberOfEnemies){
             traps[i].trapLocation.y = enemyLocations[((i+1)*2-1)];
             traps[i].trapSymbol = 'T';
 
-            mvwaddch(win,traps[i].trapLocation.x,traps[i].trapLocation.y,traps[i].trapSymbol);
+            //mvwaddch(win,traps[i].trapLocation.x,traps[i].trapLocation.y,traps[i].trapSymbol);
         }
 
 }
 
+Trap* getTraps(){
+
+    return traps;
+}
+
+void showTraps (WINDOW *win,Trap *t,int totalTraps){
+
+    for (int i = 0; i < totalTraps; i++)
+    {
+       mvwaddch(win,t[i].trapLocation.x,t[i].trapLocation.y,t[i].trapSymbol);
+    }
+    
+}
 int * generateRandomNumber(int requiredRandomNumbers){
 
     std::random_device rd; // obtain a random number from hardware

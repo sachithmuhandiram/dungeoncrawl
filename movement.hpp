@@ -8,7 +8,6 @@ void moveLeft(WINDOW *);
 void moveRight(WINDOW *); 
 void display();
 
-Player player;
 int yMax =15;
 int xMax =15;
 int yLocation,xLocation;
@@ -17,6 +16,9 @@ int height=15;
 int width=15;
 int start_x=1;
 int start_y=1;
+
+Trap *trap;
+//Player *player = new Player[1];
 
 void display(){
 
@@ -28,8 +30,16 @@ void display(){
     box(win,0,0);
 
     refresh();
-    mvwaddch(win,1,1,'f');
-    setEnemies(win,globalTrapLocations);
+    setPlayer();
+    player = getPlayer();
+
+    mvwaddch(win,player->playerLocation.x,player->playerLocation.y,player->playerSymbol);
+    
+    setTraps(numberOfTraps);
+
+    trap = getTraps();
+
+    showTraps(win,trap,numberOfTraps);
     wrefresh(win);
     keypad(win,true);
     // above two should be in line
@@ -62,7 +72,7 @@ void display(){
         default:
             break;
         }
-        mvwaddch(win,yLocation,xLocation,'f');
+        mvwaddch(win,yLocation,xLocation,'P');
         wrefresh(win);
         
     }
@@ -77,9 +87,9 @@ void moveUp(WINDOW *w){
     {
         yLocation =1;
     }
-    player.playerLocation.y--;
+    player->playerLocation.y--;
     //check whether user jumped to a trap 
-    bool trapped = isUserFallToATrap(numberOfEnemies);
+    bool trapped = isUserFallToATrap(numberOfTraps);
 
     if(trapped==true){
         mvwaddch(w,yLocation+1,xLocation,'D');
@@ -96,7 +106,7 @@ void moveDown(WINDOW *win){
     {
         yLocation = yMax-2; 
     }
-    player.playerLocation.y++;
+    player->playerLocation.y++;
     mvwaddch(win,yLocation-1,xLocation,' ');
 }
 
@@ -107,7 +117,7 @@ void moveLeft(WINDOW *win){
     {
         xLocation = 1;
     }
-        player.playerLocation.x--;
+        player->playerLocation.x--;
         mvwaddch(win,yLocation,xLocation+1,' ');
 }
 
@@ -117,28 +127,29 @@ void moveRight(WINDOW *win){
     {
         xLocation = xMax-2;
     }
-    player.playerLocation.x++;
+    player->playerLocation.x++;
     mvwaddch(win,yLocation,xLocation-1,' ');
 }
 
 Player getPlayerLocation(){
-    //Player playerDetails;
+    Player playerDetails;
 
     //playerDetails.playerSymbol = 'G';
-   // player.playerLocation.x = 13;
-   // player.playerLocation.y = 13;
+    playerDetails.playerLocation.x = player->playerLocation.x;
+    playerDetails.playerLocation.y = player->playerLocation.y;
 
-    return player;
+    return playerDetails;
 
 }
 
 bool isUserFallToATrap(int numberOfEnemies){
     // get enemy locations
-  
-    for (int i = 0; i < numberOfEnemies; i++){
+    Player p;
+    p = getPlayerLocation();
+    Trap *trap = getTraps();
 
-        
-            if(player.playerLocation.x == traps[i].trapLocation.x && player.playerLocation.y == traps[i].trapLocation.y){
+    for (int i = 0; i < numberOfEnemies; i++){
+            if(p.playerLocation.x == trap[i].trapLocation.x && p.playerLocation.y == trap[i].trapLocation.y){
                 return true;
             }
 
