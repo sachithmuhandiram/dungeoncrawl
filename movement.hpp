@@ -1,6 +1,9 @@
 #include <ncurses.h>
 #include <stdio.h>
 #include "game.hpp"
+#include <cstdio> // for logging
+#include <iostream>
+#include <fstream>
 
 void moveUp(WINDOW *);
 void moveDown(WINDOW *);
@@ -88,18 +91,24 @@ void moveUp(WINDOW *w){
         yLocation =1;
     }
     player->playerLocation.y--;
+    
     //check whether user jumped to a trap 
     bool trapped = isUserFallToATrap(numberOfTraps);
 
-    if(trapped==true){
+    // std::cout << "Value returned : " << trapped << std::endl;
+    // std::cout << "  " << std::endl;
+    // std::fclose( stdout );
+
+    if(trapped==1){
         mvwaddch(w,yLocation+1,xLocation,'D');
     }else{
         mvwaddch(w,yLocation+1,xLocation,'K');
     }
+    //std::fclose( stdout );
 
 }
 
-void moveDown(WINDOW *win){
+void moveDown(WINDOW *w){
     yLocation++;
 
     if (yLocation > yMax-2)
@@ -107,7 +116,13 @@ void moveDown(WINDOW *win){
         yLocation = yMax-2; 
     }
     player->playerLocation.y++;
-    mvwaddch(win,yLocation-1,xLocation,' ');
+    bool trapped = isUserFallToATrap(numberOfTraps);
+
+    if(trapped==1){
+        mvwaddch(w,yLocation+1,xLocation,'D');
+    }else{
+        mvwaddch(w,yLocation+1,xLocation,'K');
+    }
 }
 
 void moveLeft(WINDOW *win){
@@ -144,15 +159,33 @@ Player getPlayerLocation(){
 
 bool isUserFallToATrap(int numberOfEnemies){
     // get enemy locations
+	//ifstream infile(fileName);
     Player p;
     p = getPlayerLocation();
     Trap *trap = getTraps();
+    //std::freopen( "output.txt", "w", stdout );
+    // std::freopen( "error.txt", "w", stderr );
 
     for (int i = 0; i < numberOfEnemies; i++){
+        
             if(p.playerLocation.x == trap[i].trapLocation.x && p.playerLocation.y == trap[i].trapLocation.y){
+                
+
+                // std::cout << "Player Location  X : " << p.playerLocation.x << std::endl;
+                // std::cout << " Player Y location : " << p.playerLocation.y << std::endl;
+                // std::cerr << stderr << std::endl;              
+                // std::fclose( stdout );
+                // std::fclose(stderr);
                 return true;
             }
-
+           
+            // std::cout << "Player Location  X : " << p.playerLocation.x << " Player Y location : " << p.playerLocation.y << std::endl;
+            // std::cout <<   << std::endl;
+            //std::cout << "Iteration : " << i << " : Trap Location x : " << trap[i].trapLocation.x << " Trap location Y : " << trap[i].trapLocation.y << std::endl;
+            // std::cerr << stderr << std::endl;              
+                
         }
+       // std::fclose( stdout );
+        //         std::fclose(stderr);
     return false;
 }
