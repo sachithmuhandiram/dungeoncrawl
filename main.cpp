@@ -19,42 +19,41 @@ bool isUserFallToATrap(int numberOfEnemies,Player );
 
 int main(){
 
-    display();
-    //setEnemies(5);
+   display();
+    // setPlayer();
+
+    // setTraps(5);
+
+    // Trap *trap = getTraps();
+
     // for (int i = 0; i < 5; i++)
     // {
-    //     std::cout << "Iteration : " << i << std::endl;
-    //     std::cout << "Enemy symbol :" << traps[i].trapSymbol << std::endl;
-
-    //     std::cout << "location :" << traps[i].trapNumber << std::endl;
-    //     std::cout << "trap x :" << traps[i].trapLocation.x << std::endl;
-    //     std::cout << "trap y :" << traps[i].trapLocation.y << std::endl;
-    //     std::cout << " " << std::endl;
+    //     std::cout << "Trap " << i << " x : " << traps[i].trapLocation.x << " y : " << traps[i].trapLocation.y << std::endl;
     // }
     
-    // Player p = getPlayerLocation();
+    // Player *p = getPlayer();
 
-    // bool trapped = isUserFallToATrap(numberOfEnemies,p);
+    // p->playerLocation.x =10;
+    // p->playerLocation.y =5;
 
-    // if(trapped==true){
-    //     cout << "Trapped " << endl;
-    // }else{
-    //    cout << "Not trapped " << endl;
+    // bool trapped = isUserFallToATrap(5,*p);
+    // if(trapped){
+    //     std::cout << "User is :  " << trapped << std::endl;
     // }
     
     return 0;
 }
 
-bool isUserFallToATrap(int numberOfEnemies, Player player){
-    // get enemy locations
+// bool isUserFallToATrap(int numberOfEnemies, Player player){
+//     // get enemy locations
   
-    for (int i = 0; i < numberOfEnemies; i++){
+//     for (int i = 0; i < numberOfEnemies; i++){
 
         
-            if(player.playerLocation.x == traps[i].trapLocation.x && player.playerLocation.y == traps[i].trapLocation.y){
-                return true;
-            }
+//             if(player.playerLocation.x == traps[i].trapLocation.x && player.playerLocation.y == traps[i].trapLocation.y){
+//                 return true;
+//             }
 
-        }
-    return false;
-}
+//         }
+//     return false;
+// }

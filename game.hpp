@@ -57,7 +57,7 @@ Player getPlayerStartingLocation();
 
 void setPlayerLocation(Player);
 void setTrapLocations(Trap);
-
+void logUserAndTraps(std::string);
 //void setEnemies(WINDOW *win,int numberOfEnemies){
 void setPlayer(){
 
@@ -120,6 +120,6 @@ int * generateRandomNumber(int requiredRandomNumbers){
 }
 
 
-bool isUserFallToATrap(int numberOfEnemies);
+bool isUserFallToATrap(int numberOfEnemies,Player p);
 
 #endif

@@ -4,6 +4,7 @@
 #include <cstdio> // for logging
 #include <iostream>
 #include <fstream>
+#include<string>
 
 void moveUp(WINDOW *);
 void moveDown(WINDOW *);
@@ -93,16 +94,14 @@ void moveUp(WINDOW *w){
     player->playerLocation.y--;
     
     //check whether user jumped to a trap 
-    bool trapped = isUserFallToATrap(numberOfTraps);
+    bool trapped = isUserFallToATrap(numberOfTraps,*player);
 
-    // std::cout << "Value returned : " << trapped << std::endl;
-    // std::cout << "  " << std::endl;
-    // std::fclose( stdout );
+    if(trapped){
 
-    if(trapped==1){
         mvwaddch(w,yLocation+1,xLocation,'D');
     }else{
-        mvwaddch(w,yLocation+1,xLocation,'K');
+
+        mvwaddch(w,yLocation+1,xLocation,' ');
     }
     //std::fclose( stdout );
 
@@ -116,13 +115,13 @@ void moveDown(WINDOW *w){
         yLocation = yMax-2; 
     }
     player->playerLocation.y++;
-    bool trapped = isUserFallToATrap(numberOfTraps);
+    bool trapped = isUserFallToATrap(numberOfTraps,*player);
 
-    if(trapped==1){
+    if(trapped){
         mvwaddch(w,yLocation+1,xLocation,'D');
     }else{
-        mvwaddch(w,yLocation+1,xLocation,'K');
-    }
+        mvwaddch(w,yLocation+1,xLocation,' ');
+   }
 }
 
 void moveLeft(WINDOW *win){
@@ -133,7 +132,12 @@ void moveLeft(WINDOW *win){
         xLocation = 1;
     }
         player->playerLocation.x--;
-        mvwaddch(win,yLocation,xLocation+1,' ');
+        bool trapped = isUserFallToATrap(numberOfTraps,*player);
+        if(trapped){
+        mvwaddch(win,yLocation+1,xLocation,'D');
+        }else{
+            mvwaddch(win,yLocation+1,xLocation,' ');
+        }
 }
 
 void moveRight(WINDOW *win){
@@ -143,7 +147,12 @@ void moveRight(WINDOW *win){
         xLocation = xMax-2;
     }
     player->playerLocation.x++;
-    mvwaddch(win,yLocation,xLocation-1,' ');
+    bool trapped = isUserFallToATrap(numberOfTraps,*player);
+        if(trapped){
+            mvwaddch(win,yLocation+1,xLocation,'D');
+        }else{
+            mvwaddch(win,yLocation+1,xLocation,' ');
+        }
 }
 
 Player getPlayerLocation(){
@@ -157,35 +166,26 @@ Player getPlayerLocation(){
 
 }
 
-bool isUserFallToATrap(int numberOfEnemies){
+bool isUserFallToATrap(int numberOfEnemies, Player player){
     // get enemy locations
-	//ifstream infile(fileName);
-    Player p;
-    p = getPlayerLocation();
-    Trap *trap = getTraps();
-    //std::freopen( "output.txt", "w", stdout );
-    // std::freopen( "error.txt", "w", stderr );
-
+  
     for (int i = 0; i < numberOfEnemies; i++){
-        
-            if(p.playerLocation.x == trap[i].trapLocation.x && p.playerLocation.y == trap[i].trapLocation.y){
-                
 
-                // std::cout << "Player Location  X : " << p.playerLocation.x << std::endl;
-                // std::cout << " Player Y location : " << p.playerLocation.y << std::endl;
-                // std::cerr << stderr << std::endl;              
-                // std::fclose( stdout );
-                // std::fclose(stderr);
+        
+            if(player.playerLocation.x == traps[i].trapLocation.x && player.playerLocation.y == traps[i].trapLocation.y){
                 return true;
             }
-           
-            // std::cout << "Player Location  X : " << p.playerLocation.x << " Player Y location : " << p.playerLocation.y << std::endl;
-            // std::cout <<   << std::endl;
-            //std::cout << "Iteration : " << i << " : Trap Location x : " << trap[i].trapLocation.x << " Trap location Y : " << trap[i].trapLocation.y << std::endl;
-            // std::cerr << stderr << std::endl;              
-                
+
         }
-       // std::fclose( stdout );
-        //         std::fclose(stderr);
     return false;
+}
+
+void logUserAndTraps(std::string data){
+
+
+    std::freopen( "output.txt", "w", stdout );
+    std::cout << "Player is : " << data  << std::endl;
+    std::cout << "" << std::endl;
+
+     std::fclose( stdout );
 }
